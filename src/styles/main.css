@@ -136,54 +136,171 @@ main {
   padding: 5px;
 }
 .card-resto {
-  min-height: 100px;
+  min-width: 310px;
   background-color: white;
   border-radius: 10px;
   box-shadow: -1px 0 10px rgba(0, 0, 0, 0.3);
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .thumbnail {
   width: 100%;
-  min-height: 250px;
-  border-radius: 5px;
+  min-height: 300px;
+  border-radius: 5px 5px 0 0;
 }
 .deskripsi__resto {
   font-size: 12px;
   text-align: justify;
+  padding: 7px;;
 }
 .ratingKota {
   display: flex;
   justify-content: space-between;
-  margin-left: 4px;
-  margin-right: 4px;
+  padding: 5px;
 }
 .rating {
   font-size: 14px;
+  background: linear-gradient(to bottom, #a29b78, #ffe355);
+  color: black;
+  padding: .25em .75em;
+  border-radius: 1em;
 }
 .kota {
   font-weight: 500;
-  font-size: 15px;
+  font-size: 12px;
+  color: grey;
+  margin-right: 0.6em;
+}
+.nama__restaurant{
+  padding: 5px;
+  font-size: 1.2em;;
 }
 .link-detail{
+  text-align: center;
   min-width: 44px;
+  min-height: 44px;
   text-decoration: none;
-  color: white;
-  font-size: 0.7em;
+  color: black;
+  font-size: 1.2em;
+  font-weight: 600;
   padding: 3px;
-  border-radius: 3px;
-  background-color: black;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(to bottom, #a29b78, #ffe355);
+}
+/* Detail */
+.detail{
+  display: grid;
+  grid-template-areas:
+  "img img img img"
+  "rate rate rate city"
+  "name name name name"
+  "address address address address"
+  "describe describe describe describe"
+  "food food drink drink"
+  "csr csr csr csr";
+  width: 100%;
+  background-color: #dad4b5;
+  border-radius: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 5px;
+  padding: 0px 0px 0px;
+}
+.img__res{
+  grid-area: img;
+  object-fit: cover;
+  max-height: 500px;
+  min-height: 100px;
+  min-width: 300px;
+  border-radius: 15px 15px 0 0;
+}
+.restaurant-rating{
+  grid-area: rate;
+  margin-left: 10px;
+}
+.city__res{
+  grid-area: city;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.restaurant-name{
+  grid-area: name;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+.restaurant-address{
+  grid-area: address;
+  margin-left: 10px;
+  
+}
+.restaurant-description{
+  grid-area: describe;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 0.8em;
+  text-align: justify;
+  margin-bottom: 8px;
+}
+ul li{
+  list-style: none;
+}
+.menu-list{
+  grid-area: food;
+  display: grid;
+  justify-content: center;
+}
+.drink-list{
+  grid-area: drink;
+  display: grid;
+  justify-content: center;
+  margin-right: 10px;
+}
+.customer-reviews{
+  text-align: center;
+  grid-area: csr;
+  display: grid;
+  justify-content: center;
+}
+.coment, .date{
+  font-size: 0.8em;
+}
+
+/*
+  Like
+*/
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
 }
 footer {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: "footer footer footer";
-  width: 100%;
+  grid-template-areas: "footer footer footer";
+  min-width: 330px;
   height: 40px;
   background-color: #dad4b5;
 }
 footer > p {
   grid-area: footer;
   font-size: 14px;
+  text-align: center;
+  display: grid;
+  align-items: center;
 }
 
 /* break Point */
@@ -232,5 +349,16 @@ footer > p {
   .explore {
     font-size: 0.8em;
     font-weight: 100;
+  }
+  .detail{
+    grid-template-areas:
+    "img img img img"
+    "rate rate rate city"
+    "name name name name"
+    "address address address address"
+    "describe describe describe describe"
+    "food food food food"
+    "drink drink drink drink"
+    "csr csr csr csr";
   }
 }
