@@ -1,5 +1,5 @@
-import LikeButtonInitiator from '../src/scripts/utils/like-button-initiator';
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant';
+import * as TestFactories from './helpers/testFactories';
 
 // eslint-disable-next-line no-undef
 describe('Unliking a Restaurant', () => {
@@ -20,12 +20,7 @@ describe('Unliking a Restaurant', () => {
 
   // eslint-disable-next-line no-undef
   it('should display unlike widget when the restaurant has been liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
     // eslint-disable-next-line no-undef
     expect(document.querySelector('[aria-label="unlike this restaurant"]')).toBeTruthy();
@@ -33,12 +28,7 @@ describe('Unliking a Restaurant', () => {
 
   // eslint-disable-next-line no-undef
   it('should not display like widget when the restaurant has been liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
     // eslint-disable-next-line no-undef
     expect(document.querySelector('[aria-label="like this restaurant"]')).toBeFalsy();
@@ -46,12 +36,7 @@ describe('Unliking a Restaurant', () => {
 
   // eslint-disable-next-line no-undef
   it('should be able to remove liked restaurant from the list', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
     document.querySelector('[aria-label="unlike this restaurant"]').dispatchEvent(new Event('click'));
     // eslint-disable-next-line no-undef
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
@@ -59,12 +44,7 @@ describe('Unliking a Restaurant', () => {
 
   // eslint-disable-next-line no-undef
   it('should not throw error when user click unlike widget if the unliked restaurant is not in the list', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
     // Hapus dulu restaurant dari daftar restaurant yang disukai
     await FavoriteRestaurantIdb.deleteRestaurant(1);
     // Kemudian, simulasikan pengguna menekan widget batal menyukai restaurant
