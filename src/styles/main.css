@@ -101,7 +101,7 @@ main {
   grid-area: hero;
   width: 100%;
   height: 400px;
-  background-image: url("../public/images/heros/hero-image_2.jpg");
+  background-image: url("../public/images/heros/hero-image_2-large.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -127,7 +127,12 @@ main {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-
+#query{
+  margin-left:1em;
+  margin-top:5em;
+  min-width: 44px;
+  min-height: 44px;
+}
 .list-restaurant {
   grid-area: restaurant;
   display: grid;
@@ -345,6 +350,7 @@ footer > p {
   }
   .hero {
     height: 350px;
+    background-image: url("../public/images/heros/hero-image_2-small.jpg");
   }
   .explore {
     font-size: 0.8em;

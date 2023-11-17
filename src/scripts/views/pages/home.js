@@ -12,6 +12,8 @@ const Home = {
   async afterRender() {
     const hero = document.querySelector('.hero');
     hero.style.display = '';
+    const input = document.querySelector('#query');
+    input.style.display = 'none';
     const Restaurant = await RestaurantSources.home();
     // console.log(Restaurant);
     const restaurantList = document.getElementById('restaurant');
